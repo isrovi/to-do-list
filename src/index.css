@@ -54,7 +54,6 @@ ul {
   background-color: #20212c;
   text-decoration: none;
   margin-bottom: 6px;
-  padding: 10px;
   border-radius: 15px;
   color: white;
 }
@@ -67,4 +66,16 @@ ul {
   border-radius: 15px;
   color: white;
   text-decoration: line-through;
+}
+
+.date-text {
+  margin-left: 29px;
+  color: lightgray;
+}
+
+.btn-danger {
+  margin-left: 10px;
+  height: 40px;
+  width: 40px;
+  background-color: #f978a2;
 }

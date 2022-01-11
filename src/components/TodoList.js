@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import TodoItem from "./TodoItem";
 import { useSelector, useDispatch } from "react-redux";
 import { getTodosAsync } from "../redux/todoSlice";
+
+import { Modal, Button } from "bootstrap";
 
 const TodoList = () => {
   const dispatch = useDispatch();
@@ -25,7 +27,8 @@ const TodoList = () => {
               description={todo.description}
               createdAt={todo.createdAt}
             />
-          ))}
+          ))
+          .sort((a, b) => b.date - a.date)}
       </ul>
       <h6 className="mt-3 text-white">Completed</h6>
       <ul className="list-group">

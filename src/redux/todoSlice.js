@@ -13,7 +13,19 @@ export const getTodosAsync = createAsyncThunk(
   }
 );
 
-let nextTodoId = 0;
+let nextTodoId = 6;
+
+let today = new Date();
+let date =
+  today.getFullYear() +
+  "-" +
+  (today.getMonth() + 1) +
+  "-" +
+  today.getDate() +
+  " " +
+  today.getHours() +
+  ":" +
+  today.getMinutes();
 
 export const todoSlice = createSlice({
   name: "todos",
@@ -23,11 +35,18 @@ export const todoSlice = createSlice({
       const todo = {
         id: ++nextTodoId,
         title: action.payload.title,
-        description: "",
+        description: "lorem ipsum",
         status: 0,
-        createdAt: Date.now(),
+        createdAt: date,
       };
       state.push(todo);
+    },
+    deleteTodo: (state, action) => {
+      return state.filter((todo) => todo.id !== action.payload.id);
+    },
+    markComplete: (state, action) => {
+      const index = state.findIndex((todo) => todo.id === action.payload.id);
+      state[index].status = 1;
     },
   },
   extraReducers: {
@@ -37,6 +56,6 @@ export const todoSlice = createSlice({
   },
 });
 
-export const { addTodo } = todoSlice.actions;
+export const { addTodo, deleteTodo, markComplete } = todoSlice.actions;
 
 export default todoSlice.reducer;
