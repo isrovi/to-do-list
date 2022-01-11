@@ -37,9 +37,11 @@ const TodoItem = ({ id, title, description, status, createdAt }) => {
       </div>
       <div>
         {description}
-        <button onClick={handleDelete} className="ms-4 btn btn-danger">
-          X
-        </button>
+        {status === 0 ? (
+          <button onClick={handleDelete} className="ms-4 btn btn-danger">
+            X
+          </button>
+        ) : null}
       </div>
     </li>
   );
