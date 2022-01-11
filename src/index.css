@@ -29,10 +29,10 @@ code {
   background-color: #f978a2;
   border: 0;
   border-radius: 12px;
-  height: 30px;
   width: 32px;
-  font-weight: bold;
-  text-align: center;
+  height: 34px;
+  font-weight: 900;
+  font-size: 20px;
   margin-right: 10px;
 }
 
@@ -44,4 +44,27 @@ code {
 
 .todo-input:focus {
   outline: none;
+}
+ul {
+  list-style-type: none;
+  width: 40%;
+}
+
+.list-item {
+  background-color: #20212c;
+  text-decoration: none;
+  margin-bottom: 6px;
+  padding: 10px;
+  border-radius: 15px;
+  color: white;
+}
+
+.list-item-completed {
+  background-color: #20212c;
+  text-decoration: none;
+  margin-bottom: 6px;
+  padding: 10px;
+  border-radius: 15px;
+  color: white;
+  text-decoration: line-through;
 }

@@ -1,22 +1,36 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../redux/todoSlice";
 
 const AddTodo = () => {
   const [todo, setTodo] = useState("");
+  const dispatch = useDispatch();
 
-  const handleChange = (e) => {
-    setTodo(e.target.value);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (todo) {
+      dispatch(
+        addTodo({
+          title: todo,
+        })
+      );
+      setTodo("");
+    }
   };
 
   return (
-    <div className="add-todo d-flex flex-row">
-      <button className="add-btn">+</button>
+    <form onSubmit={handleSubmit} className="add-todo d-flex flex-row">
+      <button type="submit" className="add-btn">
+        +
+      </button>
       <input
         type="text"
-        onChange={(e) => handleChange(e)}
         className="todo-input"
         value={todo}
+        onChange={(e) => setTodo(e.target.value)}
+        placeholder="Add a task"
       />
-    </div>
+    </form>
   );
 };
 
